@@ -11,6 +11,7 @@ import UIKit
 class StudentCell: UITableViewCell {
 
     @IBOutlet weak var studentsName: UILabel!
+    @IBOutlet weak var studentSecondName: UILabel!
     @IBOutlet weak var studentsAverage: UILabel!
  
 }
