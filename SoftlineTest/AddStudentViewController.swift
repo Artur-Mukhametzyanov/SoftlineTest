@@ -32,12 +32,14 @@ class AddStudentViewController: UIViewController {
         
             if isStudentsEditing == true {
                 editStudent()
+                savingDataToUserDefaults()
             } else {
                 addNewStudent()
+                savingDataToUserDefaults()
             }
             
         } else {
-            let alert = UIAlertController(title: "Ошибка", message: "Wrong Data Format", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Ошибка", message: "Поля \"Имя\" и \"Фамилия\" должны содержать только буквы без пробелов и цифр, поле \"Средний балл\" - число от 1 до 5", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
@@ -86,5 +88,9 @@ extension AddStudentViewController {
         return averageTextField.text?.rangeOfCharacter(from: availablePoints) != nil &&
             averageTextField.text!.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
+    
+    func savingDataToUserDefaults() {
+        let savedData = NSKeyedArchiver.archivedData(withRootObject: studentsList)
+        UserDefaults.standard.set(savedData, forKey: "students")
+    }
 }
-

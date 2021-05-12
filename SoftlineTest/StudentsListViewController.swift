@@ -13,10 +13,13 @@ class StudentsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addStudentButton: UIButton!
     
+    let addSVC = AddStudentViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         appearanceCustomizer()
+        readingFromUserDefaults()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,7 +30,11 @@ class StudentsListViewController: UIViewController {
 extension StudentsListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func appearanceCustomizer() {
-        addStudentButton.layer.cornerRadius = 10
+        addStudentButton.layer.cornerRadius = 35
+        addStudentButton.layer.shadowRadius = 7
+        addStudentButton.layer.shadowOpacity = 1
+        addStudentButton.layer.shadowOffset = .init(width: 0, height: 3)
+        addStudentButton.layer.shadowColor = UIColor.systemYellow.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,6 +57,14 @@ extension StudentsListViewController: UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            studentsList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            addSVC.savingDataToUserDefaults()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return studentsList.count
     }
@@ -63,5 +78,11 @@ extension StudentsListViewController: UITableViewDelegate, UITableViewDataSource
         cell.studentsAverage.text = String(studentArray[indexPath.row].studentAverage)
         
         return cell
+    }
+    
+    func readingFromUserDefaults() {
+        if let savedData = UserDefaults.standard.object(forKey: "students") as? Data {
+            studentsList = NSKeyedUnarchiver.unarchiveObject(with: savedData) as! [Student]
+        }
     }
 }

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yFR-8N-2cf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="644"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StudentCell" rowHeight="70" id="Ckq-FB-bpr" customClass="StudentCell" customModule="SoftlineTest" customModuleProvider="target">
@@ -80,30 +80,50 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9i-Ql-LOg">
-                                <rect key="frame" x="20" y="772" width="374" height="50"/>
+                                <rect key="frame" x="304" y="752" width="70" height="70"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="7SC-FI-Hlb"/>
+                                    <constraint firstAttribute="width" constant="70" id="T3g-Wl-uLa"/>
+                                    <constraint firstAttribute="height" constant="70" id="owu-NT-zdH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <state key="normal" title="Добавить ученика">
+                                <state key="normal">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="YCO-nN-roF" kind="show" identifier="addStudent" id="Jej-rz-u5d"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-JE-pm5">
+                                <rect key="frame" x="329" y="786" width="20" height="2"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="d6Z-a9-tQe"/>
+                                    <constraint firstAttribute="width" constant="20" id="qKe-Rw-rk1"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGA-lU-wtd">
+                                <rect key="frame" x="338" y="777" width="2" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="3sO-Xr-XvL"/>
+                                    <constraint firstAttribute="width" constant="2" id="XRs-OY-I4J"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gDl-me-ZwD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gDl-me-ZwD" firstAttribute="bottom" secondItem="m9i-Ql-LOg" secondAttribute="bottom" constant="40" id="03S-g3-mWb"/>
-                            <constraint firstItem="m9i-Ql-LOg" firstAttribute="leading" secondItem="gDl-me-ZwD" secondAttribute="leading" constant="20" id="Oc2-ez-X8x"/>
+                            <constraint firstItem="HGA-lU-wtd" firstAttribute="centerY" secondItem="m9i-Ql-LOg" secondAttribute="centerY" id="IQ1-Rq-h3i"/>
+                            <constraint firstItem="HGA-lU-wtd" firstAttribute="centerX" secondItem="m9i-Ql-LOg" secondAttribute="centerX" id="JbX-e0-UZj"/>
+                            <constraint firstItem="wvv-JE-pm5" firstAttribute="centerX" secondItem="m9i-Ql-LOg" secondAttribute="centerX" id="NZa-dT-ghh"/>
                             <constraint firstItem="yFR-8N-2cf" firstAttribute="leading" secondItem="gDl-me-ZwD" secondAttribute="leading" id="RU7-G7-8qf"/>
+                            <constraint firstItem="gDl-me-ZwD" firstAttribute="trailing" secondItem="m9i-Ql-LOg" secondAttribute="trailing" constant="40" id="Tjd-ho-aF0"/>
                             <constraint firstItem="yFR-8N-2cf" firstAttribute="trailing" secondItem="gDl-me-ZwD" secondAttribute="trailing" id="VgQ-gB-qtd"/>
                             <constraint firstItem="yFR-8N-2cf" firstAttribute="top" secondItem="gDl-me-ZwD" secondAttribute="top" id="WJN-wm-Ewo"/>
-                            <constraint firstItem="m9i-Ql-LOg" firstAttribute="top" secondItem="yFR-8N-2cf" secondAttribute="bottom" constant="40" id="sdt-MA-ibT"/>
-                            <constraint firstItem="gDl-me-ZwD" firstAttribute="trailing" secondItem="m9i-Ql-LOg" secondAttribute="trailing" constant="20" id="wsA-8L-a0Y"/>
+                            <constraint firstItem="gDl-me-ZwD" firstAttribute="bottom" secondItem="m9i-Ql-LOg" secondAttribute="bottom" constant="40" id="cUb-Gl-9gZ"/>
+                            <constraint firstItem="wvv-JE-pm5" firstAttribute="centerY" secondItem="m9i-Ql-LOg" secondAttribute="centerY" id="q1O-Hf-BqB"/>
+                            <constraint firstItem="gDl-me-ZwD" firstAttribute="bottom" secondItem="yFR-8N-2cf" secondAttribute="bottom" id="sdt-MA-ibT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Список учеников" id="JuY-HN-R3E"/>
